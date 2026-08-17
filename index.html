@@ -4,119 +4,406 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LaimonCraft Maps — Laboratory Parkour</title>
+
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
-  margin:0;font-family:Arial,Helvetica,sans-serif;color:#f5f7fa;
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#f5f7fa;
   background:
     radial-gradient(circle at 20% 10%,rgba(0,255,170,.16),transparent 28%),
     radial-gradient(circle at 85% 20%,rgba(70,120,255,.16),transparent 30%),
     linear-gradient(135deg,#07100e,#0b111b 55%,#07100e);
   min-height:100vh;
 }
+
 body:before{
-  content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;
-  background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.12;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
   background-size:32px 32px;
 }
+
 nav{
-  position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);
-  background:rgba(4,9,9,.72);border-bottom:1px solid rgba(255,255,255,.08);
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(14px);
+  background:rgba(4,9,9,.72);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
-.navin{max-width:1100px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:22px;font-weight:900;letter-spacing:.5px}
-.logo span{color:#39ff9a}
-nav a{color:#cbd5d1;text-decoration:none;margin-left:24px;font-size:14px}
-nav a:hover{color:#39ff9a}
-.hero{max-width:1100px;margin:0 auto;padding:90px 24px 55px;display:grid;grid-template-columns:1.15fr .85fr;gap:45px;align-items:center}
-.badge{display:inline-block;padding:8px 13px;border:1px solid rgba(57,255,154,.35);background:rgba(57,255,154,.08);border-radius:999px;color:#65ffb0;font-size:13px;font-weight:700}
-h1{font-size:clamp(46px,7vw,82px);line-height:.95;margin:18px 0}
-h1 span{color:#39ff9a}
-.lead{font-size:19px;color:#aebbb6;line-height:1.6;max-width:650px}
-.buttons{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
-.btn{display:inline-block;padding:15px 22px;border-radius:12px;text-decoration:none;font-weight:800;transition:.2s;cursor:pointer}
-.primary{background:#39ff9a;color:#06110c;box-shadow:0 0 30px rgba(57,255,154,.22)}
-.primary:hover{transform:translateY(-2px);box-shadow:0 0 45px rgba(57,255,154,.4)}
-.secondary{border:1px solid #33433d;color:#e8efec;background:#101916}
-.secondary:hover{border-color:#39ff9a}
-.card{border:1px solid rgba(255,255,255,.1);background:rgba(12,21,18,.72);border-radius:24px;padding:28px;box-shadow:0 20px 70px rgba(0,0,0,.3)}
-.preview{height:360px;border-radius:18px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
- background:
- radial-gradient(circle at 70% 30%,rgba(57,255,154,.28),transparent 25%),
- linear-gradient(145deg,#111b19,#14271f 48%,#0c1519);
+
+.navin{
+  max-width:1100px;
+  margin:auto;
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.stat{padding:16px;border-radius:14px;background:#0b1512;border:1px solid #1e3029}
-.stat b{display:block;font-size:20px;margin-bottom:5px}
-.stat small{color:#899992}
-section{max-width:1100px;margin:auto;padding:65px 24px}
-.section-title{font-size:34px;margin:0 0 12px}
-.muted{color:#94a39d;line-height:1.7}
-.info{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:25px}
-.info .card{padding:20px}
-.icon{font-size:28px;margin-bottom:10px}
-footer{border-top:1px solid rgba(255,255,255,.08);padding:35px 24px;text-align:center;color:#77847f}
+
+.logo{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:.5px;
+}
+
+.logo span{
+  color:#39ff9a;
+}
+
+nav a{
+  color:#cbd5d1;
+  text-decoration:none;
+  margin-left:24px;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:#39ff9a;
+}
+
+.hero{
+  max-width:1100px;
+  margin:0 auto;
+  padding:90px 24px 55px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:45px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 13px;
+  border:1px solid rgba(57,255,154,.35);
+  background:rgba(57,255,154,.08);
+  border-radius:999px;
+  color:#65ffb0;
+  font-size:13px;
+  font-weight:700;
+}
+
+h1{
+  font-size:clamp(46px,7vw,82px);
+  line-height:.95;
+  margin:18px 0;
+}
+
+h1 span{
+  color:#39ff9a;
+}
+
+.lead{
+  font-size:19px;
+  color:#aebbb6;
+  line-height:1.6;
+  max-width:650px;
+}
+
+.buttons{
+  display:flex;
+  gap:13px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:15px 22px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:800;
+  transition:.2s;
+  cursor:pointer;
+}
+
+.primary{
+  background:#39ff9a;
+  color:#06110c;
+  box-shadow:0 0 30px rgba(57,255,154,.22);
+}
+
+.primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 45px rgba(57,255,154,.4);
+}
+
+.secondary{
+  border:1px solid #33433d;
+  color:#e8efec;
+  background:#101916;
+}
+
+.secondary:hover{
+  border-color:#39ff9a;
+}
+
+.card{
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(12,21,18,.72);
+  border-radius:24px;
+  padding:28px;
+  box-shadow:0 20px 70px rgba(0,0,0,.3);
+}
+
+.preview{
+  height:360px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 70% 30%,rgba(57,255,154,.28),transparent 25%),
+    linear-gradient(145deg,#111b19,#14271f 48%,#0c1519);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.stat{
+  padding:16px;
+  border-radius:14px;
+  background:#0b1512;
+  border:1px solid #1e3029;
+}
+
+.stat b{
+  display:block;
+  font-size:20px;
+  margin-bottom:5px;
+}
+
+.stat small{
+  color:#899992;
+}
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:65px 24px;
+}
+
+.section-title{
+  font-size:34px;
+  margin:0 0 12px;
+}
+
+.muted{
+  color:#94a39d;
+  line-height:1.7;
+}
+
+.info{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.info .card{
+  padding:20px;
+}
+
+.icon{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+footer{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:35px 24px;
+  text-align:center;
+  color:#77847f;
+}
+
 @media(max-width:800px){
- .hero{grid-template-columns:1fr;padding-top:55px}
- .info{grid-template-columns:repeat(2,1fr)}
- nav a{display:none}
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:55px;
+  }
+
+  .info{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  nav a{
+    display:none;
+  }
 }
-@media(max-width:480px){.info{grid-template-columns:1fr}.preview{height:260px}}
+
+@media(max-width:480px){
+  .info{
+    grid-template-columns:1fr;
+  }
+
+  .preview{
+    height:260px;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <nav>
- <div class="navin">
-  <div class="logo">Laimon<span>Craft</span> Maps</div>
-  <div><a href="#about">О карте</a><a href="#download">Скачать</a></div>
- </div>
+  <div class="navin">
+    <div class="logo">Laimon<span>Craft</span> Maps</div>
+
+    <div>
+      <a href="#about">О карте</a>
+      <a href="#download">Скачать</a>
+    </div>
+  </div>
 </nav>
 
 <main>
+
 <section class="hero">
- <div>
-  <div class="badge">🧪 НОВАЯ КАРТА</div>
-  <h1>Laboratory<br><span>Parkour</span></h1>
-  <p class="lead">Проберись через лабораторию, преодолей паркур и постарайся пройти испытание как можно быстрее!</p>
-  <div class="buttons">
-   <a class="btn primary" href="laboratory-parckour.zip" download>⬇ Скачать карту</a>
-   <a class="btn secondary" href="#about">Узнать больше</a>
+
+  <div>
+
+    <div class="badge">🧪 НОВАЯ КАРТА</div>
+
+    <h1>
+      Laboratory<br>
+      <span>Parkour</span>
+    </h1>
+
+    <p class="lead">
+      Проберись через лабораторию, преодолей паркур
+      и постарайся пройти испытание как можно быстрее!
+    </p>
+
+    <div class="buttons">
+
+      <a
+        class="btn primary"
+        href="Laboratory-parkour%20(2).zip"
+        download
+      >
+        ⬇ Скачать карту
+      </a>
+
+      <a class="btn secondary" href="#about">
+        Узнать больше
+      </a>
+
+    </div>
+
   </div>
- </div>
- <div class="card">
-  <div class="preview">
-   <div style="text-align:center">
-    <div style="font-size:72px">🧪</div>
-    <div style="font-size:27px;font-weight:900">LABORATORY</div>
-    <div style="color:#5affae;letter-spacing:4px;margin-top:8px">PARKOUR</div>
-   </div>
+
+  <div class="card">
+
+    <div class="preview">
+
+      <div style="text-align:center">
+
+        <div style="font-size:72px">🧪</div>
+
+        <div style="font-size:27px;font-weight:900">
+          LABORATORY
+        </div>
+
+        <div style="color:#5affae;letter-spacing:4px;margin-top:8px">
+          PARKOUR
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
- </div>
+
 </section>
 
 <section id="about">
- <h2 class="section-title">О карте</h2>
- <p class="muted">Laboratory Parkour — паркур-карта с атмосферой лаборатории. Испытай свою реакцию, точность прыжков и скорость прохождения.</p>
- <div class="info">
-  <div class="card"><div class="icon">🏃</div><b>Жанр</b><p class="muted">Паркур</p></div>
-  <div class="card"><div class="icon">🎮</div><b>Игра</b><p class="muted">Minecraft Java</p></div>
-  <div class="card"><div class="icon">📦</div><b>Размер</b><p class="muted">12.2 MB</p></div>
-  <div class="card"><div class="icon">🧪</div><b>Тематика</b><p class="muted">Лаборатория</p></div>
- </div>
+
+  <h2 class="section-title">
+    О карте
+  </h2>
+
+  <p class="muted">
+    Laboratory Parkour — паркур-карта с атмосферой лаборатории.
+    Испытай свою реакцию, точность прыжков и скорость прохождения.
+  </p>
+
+  <div class="info">
+
+    <div class="card">
+      <div class="icon">🏃</div>
+      <b>Жанр</b>
+      <p class="muted">Паркур</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎮</div>
+      <b>Игра</b>
+      <p class="muted">Minecraft Java</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📦</div>
+      <b>Размер</b>
+      <p class="muted">12.2 MB</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧪</div>
+      <b>Тематика</b>
+      <p class="muted">Лаборатория</p>
+    </div>
+
+  </div>
+
 </section>
 
 <section id="download">
- <div class="card" style="text-align:center;padding:45px">
-  <div style="font-size:48px">🚀</div>
-  <h2 class="section-title">Готов пройти?</h2>
-  <p class="muted">Скачай Laboratory Parkour и попробуй установить новый рекорд!</p>
-  <a class="btn primary" href="laboratory-parckour.zip" download>⬇ Скачать Laboratory Parkour</a>
- </div>
+
+  <div class="card" style="text-align:center;padding:45px">
+
+    <div style="font-size:48px">
+      🚀
+    </div>
+
+    <h2 class="section-title">
+      Готов пройти?
+    </h2>
+
+    <p class="muted">
+      Скачай Laboratory Parkour и попробуй установить новый рекорд!
+    </p>
+
+    <a
+      class="btn primary"
+      href="Laboratory-parkour%20(2).zip"
+      download
+    >
+      ⬇ Скачать Laboratory Parkour
+    </a>
+
+  </div>
+
 </section>
+
 </main>
 
-<footer>© 2026 LaimonCraft Maps · Laboratory Parkour</footer>
+<footer>
+  © 2026 LaimonCraft Maps · Laboratory Parkour
+</footer>
+
 </body>
 </html>
